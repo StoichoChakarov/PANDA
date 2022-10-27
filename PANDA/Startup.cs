@@ -34,9 +34,11 @@ namespace PANDA
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDatabaseDeveloperPageExceptionFilter();
 
-            services.AddIdentity<PandaUser, PandaUserRole>(options => options.SignIn.RequireConfirmedAccount = true)
+            services.AddIdentity<PandaUser, PandaUserRole>(options => options.SignIn.RequireConfirmedAccount = false)
                 .AddEntityFrameworkStores<PandaDBContext>();
             services.AddControllersWithViews();
+
+            services.AddRazorPages();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
